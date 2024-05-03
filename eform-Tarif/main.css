@@ -1,0 +1,157 @@
+html{
+	height:auto;
+}
+
+#wrapper{
+	background: url('../../../../external.html?link=https://webform.bca.co.id/Nassets/images/WebformGeneral/background-blue-dekstop.svg')!important;
+	background-repeat: no-repeat !important;
+    background-size: cover !important;;
+    background-position: center !important;
+}
+
+@media(max-width:525px){
+  #wrapper{
+    background:url('../../images/WebformGeneral/background-blue-mobile.png')left 50% bottom 175px/cover no-repeat !important;
+  }
+}
+
+#wrapper{
+	background-color:transparent;
+}
+
+#top {
+  background: transparent;
+  box-shadow: 0 0 0 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
+
+.AsuransiFormWrapper h3 {
+    color: #005ba9;
+    font-size: 24px;
+}
+
+.AsuransiFormWrapper .leads {
+    font-size: 0.875rem;
+    color: #6d6d6d;
+}
+
+@media (min-width: 768px) {
+  .col-sm-1, .col-sm-2, .statusBar > ul li, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  
+  .col-sm-2, .statusBar > ul li {
+    width: 16.6666666667%;
+  }
+}
+
+.mainHeader {
+  background: #FFF;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .mainHeader {
+    margin-bottom: 20px;
+  }
+}
+
+.introText {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .introText {
+    margin-bottom: 20px;
+  }
+  .introText h3 {
+    font-size: 18px;
+  } 
+}
+
+.headerStatus {
+    background: #FFF;
+    padding: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+.headerStatus .noRef {
+  font-size: 16px;
+}
+
+.headerStatus .content {
+  margin-top: 8px;
+}
+
+.headerStatus .content .pull-left {
+  font-weight: 600;
+font-size: 18px;
+}
+
+@media (min-width: 1200px) {
+  .headerStatus .content .pull-left {
+    text-indent: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerStatus {
+    padding: 10px;
+  }
+  .headerStatus .pull-left, .headerStatus .pull-right {
+    float: none !important;
+    display: block;
+  }
+  .headerStatus .col-xs-1 {
+    width: 20%;
+  }
+  .headerStatus .col-xs-11 {
+    width: 80%;
+  }
+  .headerStatus .content {
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+  iframe{
+	  height:78px;
+	}
+}
+
+.statusBar {
+  margin-bottom: 30px;
+}
+
+.statusBar > ul {
+  padding: 0px;
+}
+
+.statusBar > ul li {
+  list-style: none;
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.statusBar > ul li.current-step .name {
+  color: #555555;
+}
+
+.statusBar > ul li .circle {
+  width: 100%;
+  margin-bottom: 15px;
+  background: #F6F6F6;
+  border-radius: 100%;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: -8;
+  background-size: 100%;
+}
+
+.statusBar > ul li .circle img {
+  wi
